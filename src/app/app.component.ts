@@ -15,6 +15,10 @@ export class AppComponent {
   responseData_threeDarray: any = {}
   responseData_checkDimArray: any = {}
   responseData_HigherDimArray: any = {}
+  responseData_AccessArray: any = {}
+  responseData_Access2DArray: any = {}
+  responseData_Access3DArray: any = {}
+  responseData_AccessNegativeIndexing: any = {}
 
 
   constructor(private http: HttpClient){}
@@ -60,6 +64,30 @@ export class AppComponent {
   higherDimArray(){
     this.http.get('http://localhost:5000/api/HigherDim').subscribe((data:any) => {
       this.responseData_HigherDimArray = data
-    })
+    });
   }
+
+  arrayAccess(){
+    this.http.get('http://localhost:5000/api/AccessArray').subscribe((data:any) =>
+    {this.responseData_AccessArray = data});
+  }
+
+  Access2DArray(){
+    this.http.get('http://localhost:5000/api/Access2DArray').subscribe((data:any) => {
+      this.responseData_Access2DArray = data
+    });
+  }
+
+  Access3DArray(){
+    this.http.get('http://localhost:5000/api/Access3DArray').subscribe((data:any) => {
+      this.responseData_Access3DArray = data
+    });
+  }
+
+  ArrayNegativeIndexing(){
+    this.http.get('http://localhost:5000/api/NegativeIndexing').subscribe((data:any) => {
+      this.responseData_AccessNegativeIndexing = data
+    });
+  }
+
 }

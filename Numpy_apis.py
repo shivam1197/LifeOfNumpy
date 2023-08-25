@@ -42,5 +42,29 @@ def higherDimensionalArrays():
     data={'example':'arr = np.array([1, 2, 3, 4], ndmin=5)','actual':f'{arr}','dim':f'{arr.ndim}'}
     return jsonify(data)
 
+@app.route('/api/AccessArray')
+def AccessArray():
+    arr = np.array([1,2,3,4])
+    data = {'example':'arr = np.array([1, 2, 3, 4])','actual':f'arr[0]{arr[0]}'}
+    return jsonify(data)
+
+@app.route('/api/Access2DArray')
+def Access2DArray():
+    arr = np.array([[1,2,3,4],[2,3,4,5]])
+    data = {'example': 'arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])','actual':f'arr[0, 1]{arr[0, 1]}'}
+    return jsonify(data)
+
+@app.route('/api/Access3DArray')
+def Access3DArray():
+    arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+    data = {'example': 'arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])','actual':f'arr[0, 1, 2]{arr[0, 1, 2]}'}
+    return jsonify(data)
+
+@app.route('/api/NegativeIndexing')
+def ArrayNegativeIndexing():
+    arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+    data = {'example': 'arr = np.array([[1,2,3,4,5], [6,7,8,9,10]])','actual':f'arr[1, -1]{arr[1, -1]}'}
+    return jsonify(data)
+
 if __name__ == '__main__':
     app.run()
