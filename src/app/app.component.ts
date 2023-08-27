@@ -19,7 +19,11 @@ export class AppComponent {
   responseData_Access2DArray: any = {}
   responseData_Access3DArray: any = {}
   responseData_AccessNegativeIndexing: any = {}
-
+  responseData_Arrayslicing: any = {}
+  responseData_ArraySlicingStep: any = {}
+  responseData_Slicing2DArray: any = {}
+  responseData_ArrayWithDefinedDataTypes: any = {}
+  responseData_typeConversionArray: any = {}
 
   constructor(private http: HttpClient){}
 
@@ -90,4 +94,32 @@ export class AppComponent {
     });
   }
 
+  Arrayslicing(){
+    this.http.get('http://localhost:5000/api/Arrayslicing').subscribe((data:any) => {
+        this.responseData_Arrayslicing = data
+    });
+  }
+  ArraySlicingStep(){
+    this.http.get('http://localhost:5000/api/ArraySlicingStep').subscribe((data:any) => {
+      this.responseData_ArraySlicingStep = data
+    });
+  }
+
+  Slicing2DArray(){
+    this.http.get('http://localhost:5000/api/Slicing2DArray').subscribe((data:any) => {
+      this.responseData_Slicing2DArray = data
+    });
+  }
+
+  ArraywithDefinedDataType(){
+    this.http.get('http://localhost:5000/api/ArraywithDefinedDataType').subscribe((data:any) => {
+      this.responseData_ArrayWithDefinedDataTypes = data;
+    });
+  }
+
+  typeConvertionArray(){
+    this.http.get('http://localhost:5000/api/typeConvertionArray').subscribe((data:any) => {
+      this.responseData_typeConversionArray = data;
+    });
+  }
 }
